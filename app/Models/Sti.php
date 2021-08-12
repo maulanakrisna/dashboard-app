@@ -10,6 +10,10 @@ class Sti extends Model
     use HasFactory;
 
     public function offices(){
-      return $this->hasMany(Offices::class);
+      return $this->hasMany(Office::class);
+    }
+
+    public function profiles(){
+      return $this->hasMany(Profile::class);
     }
 }

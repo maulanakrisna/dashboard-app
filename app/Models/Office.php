@@ -10,11 +10,19 @@ class Office extends Model
     use HasFactory;
 
     public function address(){
-      return $this::hasOne(Address::class);
+      return $this->hasOne(Address::class);
     }
 
     public function sti(){
-      return $this::belongsTo(Sti::class);
+      return $this->belongsTo(Sti::class);
+    }
+
+    public function parent(){
+      return $this->belongsTo(self::class, 'parent_id');
+    }
+
+    public function childs(){
+      return $this->hasMany(self::class, 'parent_id');
     }
 
     protected static function boot(){

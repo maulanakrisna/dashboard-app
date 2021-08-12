@@ -4,7 +4,7 @@ use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 
-class CreateOfficesTable extends Migration
+class CreateProfilesTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,15 +13,15 @@ class CreateOfficesTable extends Migration
      */
     public function up()
     {
-        Schema::create('offices', function (Blueprint $table) {
+        Schema::create('profiles', function (Blueprint $table) {
             $table->id();
-            $table->string('name');
-            $table->string('email')->nullable();
-            $table->string('phone')->nullable();
-            $table->string('fax')->nullable();
+            $table->string('nip')->nullable();
+            $table->string('grade')->nullable();
+            $table->string('level')->nullable();
+            $table->string('position')->nullable();
             $table->timestamps();
 
-            $table->index('parent_id')->default(0);
+            $table->index('user_id');
             $table->index('sti_id');
         });
     }
@@ -33,7 +33,6 @@ class CreateOfficesTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('offices');
+        Schema::dropIfExists('profiles');
     }
-
 }
