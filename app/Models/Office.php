@@ -10,7 +10,11 @@ class Office extends Model
     use HasFactory;
 
     public function address(){
-      return $this::hasOne(Office::class);
+      return $this::hasOne(Address::class);
+    }
+
+    public function sti(){
+      return $this::belongsTo(Sti::class);
     }
 
     protected static function boot(){
@@ -21,8 +25,6 @@ class Office extends Model
           $office->address()->create([
             'address1' => $office->name,
           ]);
-
-          Mail::to($user->email)->send(new NewUserWelcomeMail());
         }
       );
     }
