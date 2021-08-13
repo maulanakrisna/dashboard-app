@@ -25,6 +25,10 @@ class Office extends Model
       return $this->hasMany(self::class, 'parent_id');
     }
 
+    public function networks(){
+      return $this->hasMany(Network::class);
+    }
+
     protected static function boot(){
       parent::boot();
 
