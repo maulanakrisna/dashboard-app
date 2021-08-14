@@ -29,6 +29,14 @@ class Office extends Model
       return $this->hasMany(Network::class);
     }
 
+    public function computers(){
+      return $this->hasMany(Computer::class);
+    }
+
+    public function itsupports(){
+      return $this->hasMany(Itsupport::class);
+    }
+
     protected static function boot(){
       parent::boot();
 

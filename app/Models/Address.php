@@ -9,6 +9,8 @@ class Address extends Model
 {
     use HasFactory;
 
+    protected $guarded = [];
+
     public function office(){
       return $this->belongsTo(Office::class);
     }
