@@ -1,6 +1,7 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\OfficeController;
 
 /*
 |--------------------------------------------------------------------------
@@ -20,3 +21,10 @@ Route::get('/', function () {
 Auth::routes();
 
 Route::get('/home', [App\Http\Controllers\HomeController::class, 'index'])->name('home');
+
+Route::get('/offices', [OfficeController::class, 'index'])->name('offices.index');
+Route::get('/offices/create', [OfficeController::class, 'create'])->name('offices.create');
+Route::post('/offices', [OfficeController::class, 'store'])->name('offices.store');
+Route::get('/offices/{office}', [OfficeController::class, 'show'])->name('offices.show');
+Route::get('/offices/{office}/edit', [OfficeController::class, 'edit'])->name('offices.edit');
+Route::patch('/offices/{office}', [OfficeController::class, 'update'])->name('offices.update');
