@@ -16,7 +16,9 @@ class CreateComputersTable extends Migration
         Schema::create('computers', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger('office_id');
+            $table->string('employee_name');
             $table->string('sid')->nullable();
+            $table->string('serial_number')->nullable();
             $table->string('monitor')->nullable();
             $table->string('processor')->nullable();
             $table->string('memory')->nullable();
