@@ -17,7 +17,7 @@ class CreateNetworksTable extends Migration
             $table->id();
             $table->unsignedBigInteger('office_id');
             $table->string('sid');
-            $table->string('type')->nullable();
+            $table->enum('type', ['IPVPN','METRONET','INTERNET','VSAT'])->nullable();
             $table->string('bandwidth')->nullable();
             $table->string('ip_address')->nullable();
             $table->timestamps();

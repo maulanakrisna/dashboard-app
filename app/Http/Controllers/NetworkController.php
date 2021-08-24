@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 
 class NetworkController extends Controller
 {
+  protected $guarded = [];
     //
     public function index(){
       //
