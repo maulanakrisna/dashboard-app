@@ -18,6 +18,7 @@ class User extends Authenticatable
      */
     protected $fillable = [
         'name',
+        'username',
         'email',
         'password',
     ];
@@ -52,6 +53,21 @@ class User extends Authenticatable
     //   //   }
     //   // );
     // }
+
+    protected static function boot(){
+      parent::boot();
+
+      static::created(
+        function ($user){
+            $user->profile()->create([
+             'user_id' => $user->id,
+             'sti_id' => 0,
+            ]);
+
+          // Mail::to($user->email)->send(new NewUserWelcomeMail());
+        }
+      );
+    }
 
     public function profile(){
       return $this->hasOne(Profile::class);
