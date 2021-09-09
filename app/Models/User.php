@@ -61,6 +61,7 @@ class User extends Authenticatable
         function ($user){
             $user->profile()->create([
              'user_id' => $user->id,
+             'username' => $user->username,
              'sti_id' => 0,
             ]);
 
