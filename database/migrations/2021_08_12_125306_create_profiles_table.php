@@ -17,14 +17,15 @@ class CreateProfilesTable extends Migration
             $table->id();
             $table->unsignedBigInteger('user_id');
             $table->unsignedBigInteger('sti_id');
+            $table->string('username')->nullable();
             $table->string('nip')->nullable();
             $table->string('grade')->nullable();
-            $table->string('level')->nullable();
             $table->string('position')->nullable();
+            $table->string('image')->nullable();
             $table->timestamps();
 
             $table->index('user_id');
-            $table->index('sti_id');
+            $table->index('sti_id')->default(0);
         });
     }
 
